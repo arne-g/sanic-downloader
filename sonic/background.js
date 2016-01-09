@@ -6,14 +6,15 @@ chrome.runtime.onMessage.addListener(function() {
             return;
 
         chrome.tabs.sendMessage(tabs[0].id, "", function(response) {
-            var title = response;
+            //alert(response);
 
             chrome.tabs.create({url: "https://kickass.unblocked.li/"});
             
             chrome.runtime.onMessage.addListener(
                 function(a, b, sendResponse) {
-                    sendResponse(tabs[0].id);
+                    sendResponse(response);
                 });
+            
 
         });
 
