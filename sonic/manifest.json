@@ -16,12 +16,16 @@
   
   "content_scripts": [
     {
+      "matches": ["https://kickass.unblocked.li/usearch/?q=*"],
+      "js": ["kickass-content.js"]
+    },
+    {
       "matches": ["http://www.realitykings.com/*/*/home.htm"],
       "js": ["realitykings-content.js"]
     },
     {
-      "matches": ["https://kickass.unblocked.li/usearch/?q=*"],
-      "js": ["kickass-content.js"]
+      "matches": ["http://www.teamskeet.com/t1/trailer/view/*/*"],
+      "js": ["teamskeet-content.js"]
     }
   ]
 }
