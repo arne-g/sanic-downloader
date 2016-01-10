@@ -1,5 +1,3 @@
-//kickassURL = "https://kickass.unblocked.li/";
-
 chrome.runtime.onMessage.addListener(function() {
 
     chrome.tabs.query({active: true, currentWindow: true, url: "http://www.realitykings.com/*/*/home.htm"}, function(tabs) {        
@@ -11,22 +9,12 @@ chrome.runtime.onMessage.addListener(function() {
             kickassQueryURL = "https://kickass.unblocked.li/usearch/?q=" + response;
 
             chrome.tabs.create({url: kickassQueryURL}, function (kickassTab) {
-
-                /*
-                chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-
-                    if (tabId == kickassTab.id && changeInfo.url && changeInfo.url != kickassURL) {
-                        alert(changeInfo.url);
-                    }
-                });
-                */
                 
                 chrome.runtime.onMessage.addListener(
-                    function(a, b, sendResponse) {
+                    function(undefined, undefined, sendResponse) {
                         sendResponse(response);
                     });     
                 });
-
             });
         });
     });

@@ -17,11 +17,11 @@
   "content_scripts": [
     {
       "matches": ["http://www.realitykings.com/*/*/home.htm"],
-      "js": ["stackoverflow-content.js"]
+      "js": ["realitykings-content.js"]
     },
     {
       "matches": ["https://kickass.unblocked.li/usearch/?q=*"],
-      "js": ["jquery-1.11.3.js", "kickass-content.js"]
+      "js": ["kickass-content.js"]
     }
   ]
 }
