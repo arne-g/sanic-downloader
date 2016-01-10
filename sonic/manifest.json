@@ -1,6 +1,6 @@
 {
-  "name": "Sonic",
-  "version": "0.1",
+  "name": "Sanic",
+  "version": "1.1",
   "manifest_version": 2,
   "description": "My chrome extension",
   "permissions": ["tabs", "activeTab"],

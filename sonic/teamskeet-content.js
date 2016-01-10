@@ -5,8 +5,8 @@ chrome.runtime.onMessage.addListener(
         
         var match = myRegexp.exec(document.title);
 
-        star  = match[1];
-        site  = match[2];
+        star  = match[1].replace(/ /g, '+');
+        site  = match[2].replace(/ /g, '+');
         title = match[3];
 
         sendResponse(star + "+" + site + "+" + title);

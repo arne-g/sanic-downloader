@@ -3,10 +3,14 @@ chrome.runtime.sendMessage("", function(response) {
     if(!response)
         return;
 
+    if (document.title == "Nothing found! - Kickass Torrents") {
+        alert("Nothing found!");
+        window.close();
+    }
+
     var first_panel = document.querySelectorAll("tr.odd")[0];
-    var seeds = first_panel.getElementsByClassName("green center")[0].firstChild.nodeValue;
     
-    if(seeds == 0) {
+    if(first_panel.getElementsByClassName("green center")[0].firstChild.nodeValue == 0) {
         alert("No seeds!");
         window.close();
     }
