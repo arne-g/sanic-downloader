@@ -1,6 +1,6 @@
-chrome.runtime.sendMessage("", function(response) {
+chrome.runtime.sendMessage("", function(timeDiff) {
 
-    if(!response)
+    if(!timeDiff || timeDiff > 5000)
         return;
 
     var confirm_age = document.getElementById("confirm_age");
@@ -23,5 +23,4 @@ chrome.runtime.sendMessage("", function(response) {
 
     var icons = first_panel.getElementsByClassName("icon16");
     icons[icons.length - 2].click();
-
 });
