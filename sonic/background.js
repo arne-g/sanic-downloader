@@ -1,6 +1,11 @@
 chrome.runtime.onMessage.addListener(function() {
 
-    sites = ["http://www.realitykings.com/*/*/home.htm", "http://www.teamskeet.com/t1/trailer/view/*/*"];
+    sites = [
+        "http://www.realitykings.com/*/*/home.htm",
+        "http://www.teamskeet.com/t1/trailer/view/*/*",
+        "http://new.bangbros.com/videos/*.htm",
+        "http://tour.naughtyamerica.com/scenes/*/*/*",
+        "http://www.brazzers.com/scenes/view/id/*/*/"];
     
     sites.forEach(function(site) {
         chrome.tabs.query({active: true, currentWindow: true, url: site}, function(tabs) {

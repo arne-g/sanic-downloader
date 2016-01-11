@@ -27,6 +27,18 @@
     {
       "matches": ["http://www.teamskeet.com/t1/trailer/view/*/*"],
       "js": ["teamskeet-content.js"]
+    },
+    {
+      "matches": ["http://new.bangbros.com/videos/*.htm"],
+      "js": ["bangbros-content.js"]
+    },
+    {
+      "matches": ["http://tour.naughtyamerica.com/scenes/*/*/*"],
+      "js": ["naughtyamerica-content.js"]
+    },
+    {
+      "matches": ["http://www.brazzers.com/scenes/view/id/*/*/"],
+      "js": ["brazzers-content.js"]
     }
   ]
 }

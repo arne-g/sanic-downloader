@@ -3,7 +3,8 @@ chrome.runtime.onMessage.addListener(
 
         var myRegexp = /(^.*) in (.*) video: (.*)$/g;
 
-        var myString = document.getElementsByClassName("trailercolumn")[0].getElementsByTagName("h1")[0].firstChild.nodeValue;
+        var myString = document.getElementsByClassName("trailercolumn")[0].
+            getElementsByTagName("h1")[0].firstChild.nodeValue;
         var match = myRegexp.exec(myString);
 
         star  = match[1].replace(/ /g, '+');
