@@ -3,6 +3,12 @@ chrome.runtime.sendMessage("", function(response) {
     if(!response)
         return;
 
+    var confirm_age = document.getElementById("confirm_age");
+
+    if(!confirm_age.getAttribute("style")) {
+        confirm_age.getElementsByClassName("piratMan")[0].firstElementChild.firstElementChild.click();
+    }
+
     if (document.title == "Nothing found! - Kickass Torrents") {
         alert("Nothing found!");
         window.close();

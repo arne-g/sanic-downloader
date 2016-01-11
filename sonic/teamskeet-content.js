@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener(
     function(undefined, undefined, sendResponse) {
 
         var myRegexp = /(^.*) \| (.*) \| (.*) \| .*$/g;
-        
+
         var match = myRegexp.exec(document.title);
 
         star  = match[1].replace(/ /g, '+');
