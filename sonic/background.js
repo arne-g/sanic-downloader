@@ -17,6 +17,8 @@ chrome.runtime.onMessage.addListener(function() {
             chrome.tabs.sendMessage(tabs[0].id, "", function(searchTerm) {
 
                 kickassQueryURL = "https://kickass.unblocked.li/usearch/?q=" + searchTerm.replace(/[:’'!]/g, '');
+                //?field=seeders&sorder=desc (needs to )
+
                 chrome.tabs.create({url: kickassQueryURL}, function () {
 
                     //var backgroundTime = (new Date()).getTime();
