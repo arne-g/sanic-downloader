@@ -5,7 +5,8 @@ chrome.runtime.onMessage.addListener(function() {
         "http://www.teamskeet.com/t1/trailer/view/*/*",
         "http://new.bangbros.com/videos/*.htm",
         "http://tour.naughtyamerica.com/scenes/*/*/*",
-        "http://www.brazzers.com/scenes/view/id/*/*/"];
+        "http://www.brazzers.com/scenes/view/id/*/*/",
+        "http://www.digitalplayground.com/*/trailer/*/*/" ];
     
     sites.forEach(function(site) {
         chrome.tabs.query({active: true, currentWindow: true, url: site}, function(tabs) {
@@ -15,17 +16,19 @@ chrome.runtime.onMessage.addListener(function() {
 
             chrome.tabs.sendMessage(tabs[0].id, "", function(searchTerm) {
 
-                kickassQueryURL = "https://kickass.unblocked.li/usearch/?q=" + searchTerm;
+                kickassQueryURL = "https://kickass.unblocked.li/usearch/?q=" + searchTerm.replace(/[:’'!]/g, '');
                 chrome.tabs.create({url: kickassQueryURL}, function () {
 
-                    var backgroundTime = (new Date()).getTime();
+                    //var backgroundTime = (new Date()).getTime();
                     
                     chrome.runtime.onMessage.addListener(
                         function(undefined, undefined, sendResponse) {
 
-                            var currentTime = (new Date()).getTime();
-                            sendResponse(currentTime - backgroundTime);
-                        });     
+                            //var currentTime = (new Date()).getTime();
+                            //sendResponse(currentTime - backgroundTime);
+
+                            sendResponse("hello");
+                        });
                     });
                 });
             });
