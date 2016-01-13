@@ -1,3 +1,8 @@
+closeBoxes = document.getElementsByClassName("close");
+for (var i = 0; i < closeBoxes.length; i++) {
+    closeBoxes[i].click();
+}
+
 chrome.runtime.onMessage.addListener(
     function(undefined, undefined, sendResponse) {
 
