@@ -6,7 +6,9 @@ chrome.runtime.onMessage.addListener(function() {
         "http://new.bangbros.com/videos/*.htm",
         "http://tour.naughtyamerica.com/scenes/*/*/*",
         "http://www.brazzers.com/scenes/view/id/*/*/",
-        "http://www.digitalplayground.com/*/trailer/*/*/" ];
+        "http://www.digitalplayground.com/*/trailer/*/*/",
+        "http://ddfnetwork.com/preview/*/*.html",
+        "http://pornprosnetwork.com/video/*" ];
     
     sites.forEach(function(site) {
         chrome.tabs.query({active: true, currentWindow: true, url: site}, function(tabs) {

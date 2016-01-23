@@ -43,6 +43,14 @@
     {
       "matches": ["http://www.digitalplayground.com/*/trailer/*/*/"],
       "js": ["digitalplayground-content.js"]
+    },
+    {
+      "matches": ["http://ddfnetwork.com/preview/*/*.html"],
+      "js": ["ddfnetwork-content.js"]
+    },
+    {
+      "matches": ["http://pornprosnetwork.com/video/*"],
+      "js": ["pornpros-content.js"]
     }
   ]
 }
