@@ -17,12 +17,16 @@
   
   "content_scripts": [
     {
-      "matches": ["https://kickass.unblocked.li/usearch/?q=*"],
+      "matches": ["https://kickass.unblocked.li/usearch/*/?field=seeders&sorder=desc"],
       "js": ["kickass-content.js"]
     },
     {
+      "matches": ["http://www.realitykings.com/"],
+      "js": ["realitykings/main-content.js"]
+    },
+    {
       "matches": ["http://www.realitykings.com/*/*/home.htm"],
-      "js": ["realitykings-content.js"]
+      "js": ["realitykings/video-content.js"]
     },
     {
       "matches": ["http://www.teamskeet.com/t1/trailer/view/*/*"],
@@ -37,8 +41,12 @@
       "js": ["naughtyamerica-content.js"]
     },
     {
+      "matches": ["http://www.brazzers.com/*"],
+      "js": ["brazzers/main-content.js"]
+    },
+    {
       "matches": ["http://www.brazzers.com/scenes/view/id/*/*/"],
-      "js": ["brazzers-content.js"]
+      "js": ["brazzers/video-content.js"]
     },
     {
       "matches": ["http://www.digitalplayground.com/*/trailer/*/*/"],
@@ -51,6 +59,10 @@
     {
       "matches": ["http://pornprosnetwork.com/video/*"],
       "js": ["pornpros-content.js"]
+    },
+    {
+      "matches": ["http://teenmegaworld.net/tour2/gallery/*"],
+      "js": ["teenmegaworld/video-content.js"]
     }
   ]
 }

@@ -8,7 +8,8 @@ chrome.runtime.onMessage.addListener(function() {
         "http://www.brazzers.com/scenes/view/id/*/*/",
         "http://www.digitalplayground.com/*/trailer/*/*/",
         "http://ddfnetwork.com/preview/*/*.html",
-        "http://pornprosnetwork.com/video/*" ];
+        "http://pornprosnetwork.com/video/*",
+        "http://teenmegaworld.net/tour2/gallery/*" ];
     
     sites.forEach(function(site) {
         chrome.tabs.query({active: true, currentWindow: true, url: site}, function(tabs) {
@@ -18,8 +19,8 @@ chrome.runtime.onMessage.addListener(function() {
 
             chrome.tabs.sendMessage(tabs[0].id, "", function(searchTerm) {
 
-                kickassQueryURL = "https://kickass.unblocked.li/usearch/?q=" + searchTerm.replace(/[:’'!,]/g, '');
-                //?field=seeders&sorder=desc (needs to )
+                kickassQueryURL = "https://kickass.unblocked.li/usearch/" +
+                    searchTerm.replace(/[:’'!,]/g, '').replace(/\+/g, '%20') + "/?field=seeders&sorder=desc";
 
                 chrome.tabs.create({url: kickassQueryURL}, function () {
 

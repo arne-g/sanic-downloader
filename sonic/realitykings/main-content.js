@@ -1,0 +1,1 @@
+window.location.href = "http://www.realitykings.com/recent-updates/home.htm";
