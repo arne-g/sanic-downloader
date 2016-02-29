@@ -1,0 +1,1 @@
+document.getElementsByClassName("closeBtn")[0].click();

@@ -49,8 +49,12 @@
       "js": ["brazzers/video-content.js"]
     },
     {
+      "matches": ["http://www.digitalplayground.com/*"],
+      "js": ["digitalplayground/main-content.js"]
+    },
+    {
       "matches": ["http://www.digitalplayground.com/*/trailer/*/*/"],
-      "js": ["digitalplayground-content.js"]
+      "js": ["digitalplayground/video-content.js"]
     },
     {
       "matches": ["http://ddfnetwork.com/preview/*/*.html"],
@@ -63,6 +67,14 @@
     {
       "matches": ["http://teenmegaworld.net/tour2/gallery/*"],
       "js": ["teenmegaworld/video-content.js"]
+    },
+    {
+      "matches": ["http://nubiles-porn.com/*"],
+      "js": ["nubiles/main-content.js"]
+    },
+    {
+      "matches": ["http://nubiles-porn.com/*/watch/*"],
+      "js": ["nubiles/video-content.js"]
     }
   ]
 }

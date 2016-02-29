@@ -9,7 +9,8 @@ chrome.runtime.onMessage.addListener(function() {
         "http://www.digitalplayground.com/*/trailer/*/*/",
         "http://ddfnetwork.com/preview/*/*.html",
         "http://pornprosnetwork.com/video/*",
-        "http://teenmegaworld.net/tour2/gallery/*" ];
+        "http://teenmegaworld.net/tour2/gallery/*",
+        "http://nubiles-porn.com/*/watch/*" ];
     
     sites.forEach(function(site) {
         chrome.tabs.query({active: true, currentWindow: true, url: site}, function(tabs) {
