@@ -17,7 +17,7 @@
   
   "content_scripts": [
     {
-      "matches": ["https://kickass.unblocked.li/usearch/*/?field=seeders&sorder=desc"],
+      "matches": ["https://kickass.unblocked.red/usearch/*/?field=seeders&sorder=desc"],
       "js": ["kickass-content.js"]
     },
     {
