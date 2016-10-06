@@ -5,7 +5,6 @@ chrome.runtime.sendMessage("", function(timeDiff) {
         return;
 
     var confirm_age = document.getElementById("confirm_age");
-
     if(!confirm_age.getAttribute("style")) {
         confirm_age.getElementsByClassName("piratMan")[0].firstElementChild.firstElementChild.click();
     }
@@ -16,7 +15,6 @@ chrome.runtime.sendMessage("", function(timeDiff) {
     }
 
     var first_panel = document.querySelectorAll("tr.odd")[0];
-    
     if(first_panel.getElementsByClassName("green center")[0].firstChild.nodeValue == 0) {
         alert("No seeds!");
         window.close();

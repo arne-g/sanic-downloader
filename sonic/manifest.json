@@ -11,7 +11,10 @@
   },
 
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      //"jquery.min.js",
+      "background.js"
+    ],
     "persistent": false
   },
   
@@ -19,6 +22,13 @@
     {
       "matches": ["https://kickass.unblocked.red/usearch/*/?field=seeders&sorder=desc"],
       "js": ["kickass-content.js"]
+    },
+    {
+      "matches": ["http://extratorrent.cc/search/?search=*&s_cat=&pp=&srt=seeds&order=desc"],
+      "js": [
+        "jquery.min.js",
+        "extratorrent-content.js"
+      ]
     },
     {
       "matches": ["http://www.realitykings.com/"],
@@ -33,7 +43,7 @@
       "js": ["teamskeet-content.js"]
     },
     {
-      "matches": ["http://new.bangbros.com/videos/*.htm"],
+      "matches": ["http://bangbrothers.com/video*/*"],
       "js": ["bangbros-content.js"]
     },
     {
