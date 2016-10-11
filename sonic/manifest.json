@@ -3,9 +3,12 @@
   "version": "2.0",
   "manifest_version": 2,
   //"description": "My first chrome extension",
-  "permissions": ["tabs", "activeTab"],
-
-  //"content_security_policy": "script-src 'self'; media-src magnet:; default-src 'self' magnet:; object-src 'self'",
+  
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://extratorrent.cc/*"
+  ],
 
   "browser_action": {
     "default_icon": "Sonic_Sprite.png",
@@ -21,17 +24,6 @@
   },
   
   "content_scripts": [
-    {
-      "matches": ["https://kickass.unblocked.red/usearch/*/?field=seeders&sorder=desc"],
-      "js": ["kickass-content.js"]
-    },
-    {
-      "matches": ["http://extratorrent.cc/search/?search=*&s_cat=&pp=&srt=seeds&order=desc"],
-      "js": [
-        "jquery.min.js",
-        "extratorrent-content.js"
-      ]
-    },
     {
       "matches": ["http://www.realitykings.com/"],
       "js": ["realitykings/main-content.js"]
