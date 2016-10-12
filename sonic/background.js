@@ -3,7 +3,7 @@ extratorrent_search_prefix = "/search/?search=";
 extratorrent_args = "&s_cat=&pp=&srt=seeds&order=desc";
 
 // Listen to message from popup
-chrome.runtime.onMessage.addListener(function() {
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
     	// Send message to get searchTerm back from content script
@@ -25,10 +25,27 @@ chrome.runtime.onMessage.addListener(function() {
                     var parsed_data1 = $(new DOMParser().parseFromString(data1, 'text/html'));
                     $('head', parsed_data1).append('<base href="' + extratorrent_domain + '">');
 
-                    Array.from(parsed_data1.find('.tli')[0].children).forEach(el => {
+                    first_torrent = parsed_data1.find('.tlr')[0]
+                    $first_torrent = $(first_torrent)
+                    
+                    first_torrent_name = $first_torrent.find('.tli')[0]
+
+                    // TODO: Only load first link
+                    Array.from(first_torrent_name.children).forEach(el => {
 				        if(el.tagName === "A") {
 				            
-				            // Load first torrent
+				            age = first_torrent.children[3].innerHTML
+				            size = first_torrent.children[4].innerHTML
+				        	seeders = $first_torrent.find('.sy')[0].innerHTML
+				        	leechers = $first_torrent.find('.ly')[0].innerHTML
+
+		                	popup_string = "Clicked magnet link! <br>"
+		                	popup_string += "<br><b>Title: </b>" + el.innerHTML
+		                	popup_string += "<br><b>Seeds/leeches: </b>" +
+		                		seeders + "/" + leechers
+		                	popup_string += "<br><b>Size: </b>" + size
+		                	popup_string += "<br><b>Age: </b>" + age
+
 				            $.ajax({
 				                url: el.href,
 				                success: function(data2) {
@@ -43,14 +60,17 @@ chrome.runtime.onMessage.addListener(function() {
 				                	new_link.target = 'magnet_iframe';
 				                	document.body.appendChild(new_link);
 				                	new_link.click();
+
+				                	sendResponse(popup_string)
 				                }
 				            });
-
-				            return
 				        }
 				    })
                 }
             });
         });
     });
+
+    // Keep connection open for 'sendResponse'
+    return true;
 });
