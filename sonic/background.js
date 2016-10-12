@@ -26,6 +26,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                     $('head', parsed_data1).append('<base href="' + extratorrent_domain + '">');
 
                     first_torrent = parsed_data1.find('.tlr')[0]
+                    if (!first_torrent) {
+                    	sendResponse("No torrents found!")
+                    	return
+                    }
+
                     $first_torrent = $(first_torrent)
                     
                     first_torrent_name = $first_torrent.find('.tli')[0]
@@ -39,8 +44,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 				        	seeders = $first_torrent.find('.sy')[0].innerHTML
 				        	leechers = $first_torrent.find('.ly')[0].innerHTML
 
-		                	popup_string = "Clicked magnet link! <br>"
-		                	popup_string += "<br><b>Title: </b>" + el.innerHTML
+		                	popup_string = "<b>Title: </b>" + el.innerHTML
 		                	popup_string += "<br><b>Seeds/leeches: </b>" +
 		                		seeders + "/" + leechers
 		                	popup_string += "<br><b>Size: </b>" + size
