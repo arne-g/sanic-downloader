@@ -35,7 +35,8 @@
       "js": ["realitykings/main-content.js"]
     },
     {
-      "matches": ["http://www.realitykings.com/*/*/home.htm"],
+      //"matches": ["http://www.realitykings.com/*/*/home.htm"],
+      "matches": ["http://www.realitykings.com/tour/video/watch/*/*/"],
       "js": ["realitykings/video-content.js"]
     },
     {
@@ -47,7 +48,7 @@
       "js": ["bangbros-content.js"]
     },
     {
-      "matches": ["http://tour.naughtyamerica.com/scenes/*/*/*"],
+      "matches": ["http://tour.naughtyamerica.com/scene/*"],
       "js": ["naughtyamerica-content.js"]
     },
     {
