@@ -1,12 +1,7 @@
 
 chrome.runtime.onMessage.addListener(
     function(undefined, undefined, sendResponse) {
-
-        var myRegexp = /^Official (.*) Video With (.*) Brazzers.com$/g;
-        var match = myRegexp.exec(document.title);
-
-        title = match[1].replace(/ /g, '+');
-        star  = match[2].replace(/ /g, '+');
-
-        sendResponse(star + "+" + title);
+    	text = document.getElementsByClassName("scene-title")[0].innerHTML
+    	end = text.indexOf("<span class")
+    	sendResponse(text.substring(0, end))
     });
