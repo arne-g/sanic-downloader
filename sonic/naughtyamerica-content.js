@@ -1,14 +1,21 @@
 chrome.runtime.onMessage.addListener(
     function(undefined, undefined, sendResponse) {
 
-        var myRegexp = /(^.*) in (.*$)/g;
+        var myRegexp = /(^.*?)(, .*)? in (.*$)/g;
 
-        var myString = document.
-            getElementsByClassName("synopsis-title")[0].firstChild.nodeValue;
+        var myString = document
+            .getElementsByClassName("synopsis-title")[0]
+            .firstChild
+            .nodeValue
+            .trim()
+            .replace("\n", "")
+            .replace(/[ ]{2,}/g, ' ');
         var match = myRegexp.exec(myString);
 
         star = match[1].replace(/ /g, '+');
-        site = match[2].replace(/ /g, '');
+        site = match[3].replace(/ /g, '');
 
-        sendResponse(star + "+" + site);
+        query = star + "+" + site
+        console.log(query)
+        sendResponse(query);
     });
