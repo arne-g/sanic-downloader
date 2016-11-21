@@ -38,7 +38,10 @@
       "js": ["teamskeet-content.js"]
     },
     {
-      "matches": ["http://bangbrothers.com/video*/*"],
+      "matches": [
+        "http://bangbrothers.com/video*/*",
+        "http://t8.bangbrosnetwork.com/bangbrothers/video*/*"
+      ],
       "js": ["bangbros-content.js"]
     },
     {

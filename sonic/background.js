@@ -3,19 +3,30 @@ extratorrent_search_prefix = "/search/?search=";
 extratorrent_args = "&s_cat=&pp=&srt=seeds&order=desc";
 
 // Listen to message from popup
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome.runtime.onConnect.addListener(function(port) {
+  port.onMessage.addListener(function(msg) {
+
+//chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+
+        //sendResponse("Looking for search string ...");
+        port.postMessage("Looking for search string ...");
 
     	// Send message to get searchTerm back from content script
         chrome.tabs.sendMessage(tabs[0].id, "", function(searchTerm) {
 
         	if (searchTerm === undefined) {
+                //sendResponse("Failed to retrieve search string.")
+                port.postMessage("Failed to retrieve search string.")
         		return;
         	}
 
         	query_escaped = searchTerm.replace(/[:’'!,]/g, '').replace(/\+/g, '%20');
         	torrent_url = extratorrent_domain + extratorrent_search_prefix +
         		query_escaped + extratorrent_args;
+
+            //sendResponse("Querying for torrents ...")
+            port.postMessage("Querying for torrents ...")
 
         	// Query for torrents
         	$.ajax({
@@ -27,12 +38,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
                     first_torrent = parsed_data1.find('.tlr')[0]
                     if (!first_torrent) {
-                    	sendResponse("No torrents found!")
+                        port.postMessage("No torrents found!");
+                    	//sendResponse("No torrents found!")
                     	return
                     }
 
+                    //sendResponse("Torrents found. Looking for Magnet link ...")
+                    port.postMessage("Torrents found. Looking for Magnet link ...")
+
                     $first_torrent = $(first_torrent)
-                    
                     first_torrent_name = $first_torrent.find('.tli')[0]
 
                     // TODO: Only load first link
@@ -65,7 +79,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 				                	document.body.appendChild(new_link);
 				                	new_link.click();
 
-				                	sendResponse(popup_string)
+				                	//sendResponse(popup_string)
+                                    port.postMessage(popup_string)
 				                }
 				            });
 				        }
@@ -75,6 +90,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         });
     });
 
+  })
     // Keep connection open for 'sendResponse'
-    return true;
+    //return true;
 });
