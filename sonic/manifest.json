@@ -48,7 +48,7 @@
       "js": ["brazzers/main-content.js"]
     },
     {
-      "matches": ["http://www.brazzers.com/scenes/view/id/*/*/"],
+      "matches": ["https://www.brazzers.com/scenes/view/id/*/*/"],
       "js": ["brazzers/video-content.js"]
     },
     {

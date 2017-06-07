@@ -19,9 +19,10 @@ chrome.runtime.onConnect.addListener(function(port) {
     	// Send message to get searchTerm back from content script
         chrome.tabs.sendMessage(tabs[0].id, "", function(searchTerm) {
 
+            console.log(searchTerm);
         	if (searchTerm === undefined) {
                 //sendResponse("Failed to retrieve search string.")
-                port.postMessage("Failed to retrieve search string.")
+                port.postMessage("Failed to retrieve search string / No content script match.")
         		return;
         	}
 
