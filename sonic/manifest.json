@@ -35,6 +35,7 @@
     {
       "matches": [
         "http://bangbrothers.com/video*/*",
+        "http://bangbrothers.net/video*/*",
         "http://t8.bangbrosnetwork.com/bangbrothers/video*/*"
       ],
       "js": ["bangbros-content.js"]

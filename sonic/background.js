@@ -47,7 +47,9 @@ chrome.runtime.onConnect.addListener(function(port) {
                     //first_torrent = parsed_data1.find('.tlr')[0]
 				    first_torrent = parsed_data1.find('[alt="Magnet link"]')[0];
                     if (!first_torrent) {
-                        port.postMessage("No torrents found!");
+                        port.postMessage(
+                            "No torrents found for string:<br>'" +
+                                searchTerm + "'");
                     	return
                     }
                     
