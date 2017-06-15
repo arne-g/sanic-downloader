@@ -29,6 +29,10 @@
       "js": ["realitykings/video-content.js"]
     },
     {
+      "matches": ["http://www.realitykings.com/tour/videos/*"],
+      "js": ["realitykings/index-page-content.js"]
+    },
+    {
       "matches": ["http://www.teamskeet.com/t1/trailer/view/*/*"],
       "js": ["teamskeet-content.js"]
     },
@@ -42,7 +46,11 @@
     },
     {
       "matches": ["http://tour.naughtyamerica.com/scene/*"],
-      "js": ["naughtyamerica-content.js"]
+      "js": ["naughtyamerica/video-content.js"]
+    },
+    {
+      "matches": ["http://tour.naughtyamerica.com/*"],
+      "js": ["naughtyamerica/main-content.js"]
     },
     {
       "matches": ["http://www.brazzers.com/*"],
